@@ -15,7 +15,7 @@ Vision, Hysteria2), Caddy and nftables — with no home-made cryptography.
 On a fresh Debian 12 VPS, as root:
 
 ```bash
-curl -fsSLO https://github.com/instl999/veil/releases/latest/download/veil-install.sh && bash veil-install.sh
+curl -fsSLO https://github.com/lee7856/veil/releases/latest/download/veil-install.sh && bash veil-install.sh
 ```
 
 The installer checks the server, then walks you through 11 steps in English and
