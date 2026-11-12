@@ -14,7 +14,7 @@ Hysteria2）、Caddy 和 nftables——不自创任何加密。
 在全新的 Debian 12 VPS 上，以 root 身份运行：
 
 ```bash
-curl -fsSLO https://github.com/instl999/veil/releases/latest/download/veil-install.sh && bash veil-install.sh
+curl -fsSLO https://github.com/lee7856/veil/releases/latest/download/veil-install.sh && bash veil-install.sh
 ```
 
 安装脚本会先检查服务器，然后用中英文分 11 步引导你：准确告诉你在 Cloudflare 中
