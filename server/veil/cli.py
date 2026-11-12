@@ -439,12 +439,21 @@ def build_parser() -> argparse.ArgumentParser:
     return ap
 
 
+def _utf8_stdio() -> None:
+    # Server locales are often not UTF-8; without this, Chinese output crashes
+    # every command with UnicodeEncodeError on a latin-1 or ascii stdout.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, "reconfigure"):
+            try:
+                stream.reconfigure(encoding="utf-8", errors="replace")
+            except (ValueError, OSError):
+                pass
+
+
 def main(argv: list[str] | None = None) -> int:
+    _utf8_stdio()
     argv = sys.argv[1:] if argv is None else argv
     if not argv:
-        # Never crash the menu over a terminal that cannot show Chinese text.
-        if hasattr(sys.stdout, "reconfigure"):
-            sys.stdout.reconfigure(errors="replace")
         from .menu import run
         return run()
     args = build_parser().parse_args(argv)
